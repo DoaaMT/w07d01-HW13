@@ -8,20 +8,23 @@
 // function to return a string where every other word is in all caps.
 // Hint: look up Array.prototype.map on MDN and see what arguments the .map callback can take.
 // ex: swapCase('hello stranger , what do we have today? ') // => " HELLO stranger , WHAT do WE have TODAY ?"
-var swapCase = function(string) {
-  // Codeeeee
-};
+// var swapCase = function(string) {
+//   // Codeeeee
+// };
+var swapCase = string => string.split(' ').map((x,y) => (y%2 == 0)?x.toUpperCase() : x).join(' ');
+swapCase('hello stranger , what do we have today?');
 ​
 // B) Write a function shiftLetters that takes a string and uses .map to return an encoded string with each letter shifted down the
 // alphabet by one. Hint: Use Look up the JS functions String.fromCharCode() and String.charCodeAt() .
 // see if you can use Ascii code to acomplish this
 // ex. shiftLetters('hello') // => 'ifmmp'
 // ex. (shiftLetters('abcxyz') // => "bcdyz{"
-var shiftLetters = function(string) {
-  // code!
-};
+// var shiftLetters = function(string) {
+//   // code!
+// };
 
-
+var shiftLetters = string => string.split('').map(x =>  String.fromCharCode(x.charCodeAt()+1)) .join('');
+shiftLetters('hello');
 
 
 // PART 2: USE FOREACH IN THE FOLLOWING EXCERCISES
@@ -47,6 +50,19 @@ var shiftLetters = function(string) {
 // - 2 of diamonds
 // - 3 of diamonds 
 
+var cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King", "Ace"];
+var suits = ["Diamonds", "Hearts", "Clubs", "Spades"];
+var deck = [];
+
+suits.forEach(suit => {
+  cards.forEach(card => {
+    deck.push(card + " of " + suit);
+  });
+});
+deck.forEach(rank => {
+   console.log(rank);
+});
+
 
 // B) Word Play
 // Create a form where users may enter a sentence.
@@ -55,5 +71,6 @@ var shiftLetters = function(string) {
 // Finally, reverse the order of the new array, join it back together into a string, and display it to the user.
 
 
-
+var rev = string => string.split(' ').filter(x => x.length >= 3 ).reverse().join('');
+rev('hello stranger , what do we have today?');
 
